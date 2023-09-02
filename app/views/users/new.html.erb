@@ -1,2 +1,69 @@
 <h1>New User</h1>
+<p>The form uses the HTML form to simulate what the Rails form_with helper
+  does.
+</p>
 
+<!-- New user form -->
+<!-- <form action="/users" method="post" accept-charset="utf-8">
+  <div>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  </div>
+  <div>
+    <label for="user_username">Username</label>
+    <input type="text" name="user[username]" id="user_username" placeholder="min 3 Characters">
+  </div>
+  <div>
+    <label for="user_email">Email</label>
+    <input type="email" name="user[email]" id="user_email" placeholder="min 5 Characters">
+  </div>
+  <div>
+    <label for="user_password">Password</label>
+    <input type="password" name="user[password]" id="user_password" placeholder="min 5 Characters">
+  </div>
+  <div>
+    <input type="submit" value="Create User">
+  </div> -->
+
+<h1>New User Railsy Form</h1>
+<p>The form uses Rails using the #form_tag and #*_tag helpers to create the form.</p>
+</p>
+<!-- Rails form using form_tag helpers -->
+<!-- <%= form_for @user, url: {action: "create"}  do |f| %>
+  <div>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.submit "Create User" %>
+  </div>
+<% end %> -->
+
+<h1>Railsy-er forms with #form_with</h1>
+<p>The form uses Rails using the #form_with and #*_tag helpers to create the form.</p>
+</p>
+<!-- Rails form using form_with helpers -->
+<%= form_with model: @user do |f| %>
+  <div>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

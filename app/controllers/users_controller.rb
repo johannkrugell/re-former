@@ -10,7 +10,14 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to new_user_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  # User params method
+  def user_params
+    params.require(:user).permit(:username, :email, :password)
   end
 end
