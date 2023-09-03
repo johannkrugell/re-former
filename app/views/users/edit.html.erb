@@ -1,0 +1,29 @@
+<h1>Edit user details</h1>
+<p>The form edits the user details.</p>
+</p>
+<!-- Form to edit users details -->
+<%= form_with(model: @user, url: user_path(@user), method: "patch") do |f| %>
+<!-- Display error message for form -->
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= f.label :username %>
+    <%= f.text_field :username %>      
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.submit "Update User"  %>
+  </div>
+<% end %>
